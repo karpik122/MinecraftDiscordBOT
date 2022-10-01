@@ -63,7 +63,7 @@ public final class MainClass extends JavaPlugin implements Listener {
 
     public void runBot() {
         try {
-            jda = JDABuilder.createDefault("OTAzMDA5NzIxNjc2NjExNjI1.YXmvVg.Js378vA9Je9TGKmw4tyrNYs7M04",
+            jda = JDABuilder.createDefault("0000000000",
                             GatewayIntent.GUILD_MEMBERS,
                             GatewayIntent.GUILD_EMOJIS_AND_STICKERS,
                             GatewayIntent.GUILD_MESSAGES,
