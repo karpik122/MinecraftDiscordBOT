@@ -1,0 +1,9 @@
+main: java.minecraftBOT.MainClass
+name: MinecraftDiscordBOT
+version: 1.0
+author: karpik122
+api-version: 1.15
+commands:
+  report:
+  playtime:
+  alert:
