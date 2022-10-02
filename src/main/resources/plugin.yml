@@ -1,7 +1,6 @@
-main: java.minecraftBOT.MainClass
 name: MinecraftDiscordBOT
-version: 1.0
-author: karpik122
+version: '${project.version}'
+main: main.java.MinecraftDiscordBOT.MainClass
 api-version: 1.15
 commands:
   report:
