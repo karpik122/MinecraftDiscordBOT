@@ -12,7 +12,7 @@ public class DiscordCheck extends ListenerAdapter {
 
     public void onGuildMessageReceived(@NotNull GuildMessageReceivedEvent event) {
         if (event.getMessage().getContentRaw().startsWith("!playtime")) {
-            File f = new File("plugins/UtopiaMC/playtime.yml");
+            File f = new File("plugins/MinecraftDiscordBOT/playtime.yml");
             YamlConfiguration file = YamlConfiguration.loadConfiguration(f);
             String query = event.getMessage().getContentRaw().replace("!playtime ", "");
             if (file.get(query) == null) {

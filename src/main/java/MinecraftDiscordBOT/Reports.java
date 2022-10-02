@@ -22,7 +22,8 @@ public class Reports implements Listener, CommandExecutor {
     }
 
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
-        TextChannel reportChannel = this.jda.getTextChannelById("906308567345274921");
+        String Reports_channel = getConfig().getString("Reports_chanel")
+        TextChannel reportChannel = this.jda.getTextChannelById(Reports_channel);
         if (sender instanceof Player) {
             Player p = (Player)sender;
             Player reported = null;

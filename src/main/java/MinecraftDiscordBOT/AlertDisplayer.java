@@ -13,7 +13,7 @@ public class AlertDisplayer extends TimerTask {
     }
 
     public void run() {
-        File f = new File("plugins/UtopiaMC/alerts.yml");
+        File f = new File("plugins/MinecraftDiscordBOT/alerts.yml");
         YamlConfiguration file = YamlConfiguration.loadConfiguration(f);
         if (file.getBoolean("activealert")) {
             Bukkit.getServer().getOnlinePlayers().forEach((pl) -> {

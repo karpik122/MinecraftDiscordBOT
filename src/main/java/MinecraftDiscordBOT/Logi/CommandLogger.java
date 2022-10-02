@@ -48,7 +48,7 @@ public class CommandLogger implements @NotNull Listener {
                 }
             }
         } catch (Exception e) {
-            System.out.println(ChatColor.RED + "Wystąpił nieznany błąd. Skontaktuj się z CoronaCreeper#4884");
+            System.out.println(ChatColor.RED + "Wystąpił nieznany błąd. Skontaktuj się z karpik122#0947");
         }
     }
 }

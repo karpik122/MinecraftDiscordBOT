@@ -13,7 +13,7 @@ public class DiscordAllTime extends ListenerAdapter {
 
     public void onGuildMessageReceived(@NotNull GuildMessageReceivedEvent event) {
         if (event.getMessage().getContentRaw().startsWith("!alltime") && event.getMember().hasPermission(new Permission[]{Permission.ADMINISTRATOR})) {
-            File f = new File("plugins/UtopiaMC/playtime.yml");
+            File f = new File("plugins/MinecraftDiscordBOT/playtime.yml");
             YamlConfiguration file = YamlConfiguration.loadConfiguration(f);
             event.getMessage().reply("```" + file.saveToString() + "```").queue();
         }

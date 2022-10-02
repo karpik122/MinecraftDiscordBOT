@@ -15,7 +15,7 @@ public class Counter extends TimerTask {
     public void run() {
         try {
             System.out.println(ChatColor.RED + "Zapisano czas gry");
-            File f = new File("plugins/UtopiaMC/playtime.yml");
+            File f = new File("plugins/MinecraftDiscordBOT/playtime.yml");
             YamlConfiguration file = YamlConfiguration.loadConfiguration(f);
             List<Player> players = (List)Bukkit.getOnlinePlayers();
 

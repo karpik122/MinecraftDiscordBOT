@@ -14,7 +14,7 @@ public class Alert implements CommandExecutor {
 
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         try {
-            File f = new File("plugins/UtopiaMC/alerts.yml");
+            File f = new File("plugins/MinecraftDiscordBOT/alerts.yml");
             YamlConfiguration file = YamlConfiguration.loadConfiguration(f);
             if (!(sender instanceof Player)) {
                 String content = "";

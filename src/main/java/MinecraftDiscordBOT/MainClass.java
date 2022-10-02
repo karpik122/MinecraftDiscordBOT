@@ -3,6 +3,8 @@ package main.java.MinecraftDiscordBOT;
 import java.io.File;
 import java.util.Timer;
 import javax.security.auth.login.LoginException;
+
+import com.mysql.fabric.xmlrpc.base.Data;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.requests.GatewayIntent;
@@ -23,11 +25,26 @@ public final class MainClass extends JavaPlugin implements Listener {
     public MainClass() {
     }
 
+
     public void onEnable() {
+        super.onEnable();
+
+        saveDefaultConfig();
+
+        String discordToken = getConfig().getString("TOKEN");
+        if (discordToken == null) {
+            getServer().getPluginManager().disablePlugin(this);
+            getLogger().severe("proszę podać TOKEN w pliku config.yml");
+            return;
+        }
+
+        this.jda = JDABuilder.createDefault(discordToken)
+                .build();
+
+
         try {
-            System.out.println(ChatColor.RED + "Utopia Discord Hook - Ładowanie");
-            this.runBot();
-            System.out.println(ChatColor.GREEN + "Utopia Discord Hook - Zalogowano jako " + jda.getSelfUser().getName() + "#" + jda.getSelfUser().getDiscriminator() + " (" + jda.getSelfUser().getId() + ")");
+            System.out.println(ChatColor.RED + "MinecraftDiscordBOT - Ładowanie");
+            System.out.println(ChatColor.GREEN + "MinecraftDiscordBOT - Zalogowano jako " + jda.getSelfUser().getName() + "#" + jda.getSelfUser().getDiscriminator() + " (" + jda.getSelfUser().getId() + ")");
             this.getServer().getPluginManager().registerEvents(this, this);
             this.getServer().getPluginManager().registerEvents(new CommandLogger(), this);
             this.getServer().getPluginManager().registerEvents(new AutoMessages(), this);
@@ -38,7 +55,7 @@ public final class MainClass extends JavaPlugin implements Listener {
             timer.schedule(new AutoMessages(), 0L, 600000L);
             timer.schedule(new Counter(), 0L, 60000L);
             timer.schedule(new AlertDisplayer(), 0L, 1000L);
-            File f = new File("plugins/UtopiaMC/alerts.yml");
+            File f = new File("plugins/MinecraftDiscordBOT/alerts.yml");
             YamlConfiguration file = YamlConfiguration.loadConfiguration(f);
             file.set("activealert", false);
             file.save(f);
@@ -50,15 +67,7 @@ public final class MainClass extends JavaPlugin implements Listener {
     public void onDisable() {
     }
 
-    public void runBot() {
-        try {
-            jda = JDABuilder.createDefault("twój token", GatewayIntent.GUILD_MEMBERS, new GatewayIntent[]{GatewayIntent.GUILD_EMOJIS, GatewayIntent.GUILD_MESSAGES, GatewayIntent.GUILD_VOICE_STATES, GatewayIntent.GUILD_INVITES, GatewayIntent.GUILD_BANS, GatewayIntent.GUILD_INVITES, GatewayIntent.GUILD_MESSAGE_REACTIONS, GatewayIntent.GUILD_PRESENCES, GatewayIntent.GUILD_WEBHOOKS, GatewayIntent.DIRECT_MESSAGE_REACTIONS, GatewayIntent.DIRECT_MESSAGE_TYPING, GatewayIntent.DIRECT_MESSAGES}).addEventListeners(new Object[]{new User(), new DiscordCheck(), new DiscordAllTime()}).build();
-        } catch (LoginException var2) {
-            System.out.println(ChatColor.RED + "Utopia Discord Hook - BŁĄD");
-            var2.printStackTrace();
-        }
 
-    }
 
     public static JDA getJda() {
         return jda;
