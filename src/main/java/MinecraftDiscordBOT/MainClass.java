@@ -52,7 +52,7 @@ public final class MainClass extends JavaPlugin implements Listener {
 
     public void runBot() {
         try {
-            jda = JDABuilder.createDefault("OTAzMDA5NzIxNjc2NjExNjI1.YXmvVg.8XT6H8052GgKoA67i9EZYjlpVFo", GatewayIntent.GUILD_MEMBERS, new GatewayIntent[]{GatewayIntent.GUILD_EMOJIS, GatewayIntent.GUILD_MESSAGES, GatewayIntent.GUILD_VOICE_STATES, GatewayIntent.GUILD_INVITES, GatewayIntent.GUILD_BANS, GatewayIntent.GUILD_INVITES, GatewayIntent.GUILD_MESSAGE_REACTIONS, GatewayIntent.GUILD_PRESENCES, GatewayIntent.GUILD_WEBHOOKS, GatewayIntent.DIRECT_MESSAGE_REACTIONS, GatewayIntent.DIRECT_MESSAGE_TYPING, GatewayIntent.DIRECT_MESSAGES}).addEventListeners(new Object[]{new User(), new DiscordCheck(), new DiscordAllTime()}).build();
+            jda = JDABuilder.createDefault("twój token", GatewayIntent.GUILD_MEMBERS, new GatewayIntent[]{GatewayIntent.GUILD_EMOJIS, GatewayIntent.GUILD_MESSAGES, GatewayIntent.GUILD_VOICE_STATES, GatewayIntent.GUILD_INVITES, GatewayIntent.GUILD_BANS, GatewayIntent.GUILD_INVITES, GatewayIntent.GUILD_MESSAGE_REACTIONS, GatewayIntent.GUILD_PRESENCES, GatewayIntent.GUILD_WEBHOOKS, GatewayIntent.DIRECT_MESSAGE_REACTIONS, GatewayIntent.DIRECT_MESSAGE_TYPING, GatewayIntent.DIRECT_MESSAGES}).addEventListeners(new Object[]{new User(), new DiscordCheck(), new DiscordAllTime()}).build();
         } catch (LoginException var2) {
             System.out.println(ChatColor.RED + "Utopia Discord Hook - BŁĄD");
             var2.printStackTrace();
